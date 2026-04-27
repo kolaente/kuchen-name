@@ -20,7 +20,10 @@ samtig
 duftig
 fein
 golden
-dunkel
+dunkel|dunkler|dunkle|dunkles
+edel|edler|edle|edles
+teuer|teurer|teure|teures
+sauer|saurer|saure|saures
 hell
 schlicht
 opulent
