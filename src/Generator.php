@@ -41,17 +41,39 @@ final class Generator
         }
 
         $kuchen = $this->pickKuchentyp();
+        $noun   = mb_strtolower($kuchen->noun);
 
         if ($words === 1) {
-            return mb_strtolower($kuchen->noun);
+            return $noun;
         }
 
-        throw new \LogicException('words >= 2 not yet implemented');
+        $adjStem = $this->adjektive->pick($this->rng);
+        $adj     = mb_strtolower(Inflector::adjective($adjStem, $kuchen->gender));
+
+        if ($words === 2) {
+            return $adj . $separator . $noun;
+        }
+
+        $sortenCount = $words - 2;
+        $sorten      = $this->pickDistinctSorten($sortenCount);
+
+        return $adj . $separator . implode($separator, $sorten) . $separator . $noun;
     }
 
     private function pickKuchentyp(): Kuchentyp
     {
         $index = $this->rng->getInt(0, count($this->kuchentypen) - 1);
         return $this->kuchentypen[$index];
+    }
+
+    /** @return list<string> */
+    private function pickDistinctSorten(int $count): array
+    {
+        $pool = $this->sorten->all();
+        if (count($pool) < $count) {
+            throw new \RuntimeException("Not enough sorten ({$count} requested, " . count($pool) . ' available).');
+        }
+        $shuffled = $this->rng->shuffleArray($pool);
+        return array_slice($shuffled, 0, $count);
     }
 }
