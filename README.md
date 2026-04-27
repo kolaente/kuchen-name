@@ -38,6 +38,17 @@ Three text files under `resources/`:
 
 For 2 words: `<adjective>-<kuchentyp>`. For N≥3: `<adjective>-<sorte>×(N-2)-<kuchentyp>`. The adjective is inflected to match the noun's grammatical gender (`-er`/`-e`/`-es`).
 
+### Irregular adjectives
+
+Stems ending in `-el` or `-er` (e.g. `dunkel`, `edel`, `teuer`, `sauer`) drop their final `e` when an ending is added: `dunkle Torte`, not `dunkele Torte`. To handle these, write the entry on one line as `stem|masculine|feminine|neuter`:
+
+```
+dunkel|dunkler|dunkle|dunkles
+edel|edler|edle|edles
+```
+
+Regular adjectives stay as a single token (`saftig`). Mixed entries in the same file are fine.
+
 To add words, edit the text files and send a PR.
 
 ## License
