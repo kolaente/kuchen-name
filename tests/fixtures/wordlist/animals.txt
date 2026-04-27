@@ -1,0 +1,7 @@
+# A comment, should be ignored
+ant
+bear
+
+cat
+dolphin
+elephant
