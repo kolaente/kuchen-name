@@ -1,0 +1,12 @@
+Kuchen|m
+Torte|f
+Stollen|m
+Strudel|m
+Krapfen|m
+Brötchen|n
+Plätzchen|n
+Brezel|f
+Hefezopf|m
+Streuselkuchen|m
+Käsekuchen|m
+Marmorkuchen|m
