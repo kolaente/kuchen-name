@@ -2,7 +2,7 @@
     "name": "kolaente/kuchen-name",
     "description": "Generate random German cake names.",
     "type": "library",
-    "license": "Apache-2.0",
+    "license": "LGPL-3.0-only",
     "require": {
         "php": "^8.2"
     },

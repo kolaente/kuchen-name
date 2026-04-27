@@ -42,4 +42,4 @@ To add words, edit the text files and send a PR.
 
 ## License
 
-Apache-2.0.
+LGPL-3.0-only. See [LICENSE](LICENSE).
