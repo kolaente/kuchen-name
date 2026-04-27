@@ -27,4 +27,34 @@ final class InflectorTest extends TestCase
     {
         $this->assertSame('süße', Inflector::adjective('süß', Gender::Feminine));
     }
+
+    public function test_irregular_returns_pre_inflected_masculine(): void
+    {
+        $this->assertSame(
+            'dunkler',
+            Inflector::adjective('dunkel|dunkler|dunkle|dunkles', Gender::Masculine),
+        );
+    }
+
+    public function test_irregular_returns_pre_inflected_feminine(): void
+    {
+        $this->assertSame(
+            'dunkle',
+            Inflector::adjective('dunkel|dunkler|dunkle|dunkles', Gender::Feminine),
+        );
+    }
+
+    public function test_irregular_returns_pre_inflected_neuter(): void
+    {
+        $this->assertSame(
+            'dunkles',
+            Inflector::adjective('dunkel|dunkler|dunkle|dunkles', Gender::Neuter),
+        );
+    }
+
+    public function test_irregular_rejects_wrong_field_count(): void
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        Inflector::adjective('dunkel|dunkler|dunkle', Gender::Masculine);
+    }
 }

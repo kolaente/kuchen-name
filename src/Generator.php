@@ -47,8 +47,8 @@ final class Generator
             return $noun;
         }
 
-        $adjStem = $this->adjektive->pick($this->rng);
-        $adj     = mb_strtolower(Inflector::adjective($adjStem, $kuchen->gender));
+        $adjEntry = $this->adjektive->pick($this->rng);
+        $adj      = mb_strtolower(Inflector::adjective($adjEntry, $kuchen->gender));
 
         if ($words === 2) {
             return $adj . $separator . $noun;
